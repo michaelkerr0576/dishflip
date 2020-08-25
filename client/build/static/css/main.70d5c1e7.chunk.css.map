@@ -1,0 +1,1 @@
+{"version":3,"sources":["App.css"],"names":[],"mappings":"AAAA,WACE,cACF,CACA,uBACE,yBACF","file":"main.70d5c1e7.chunk.css","sourcesContent":[".c-pointer {\n  cursor: pointer;\n}\n.c-textUnderline:hover {\n  text-decoration: underline;\n}"]}
