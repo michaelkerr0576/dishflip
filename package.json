@@ -2,7 +2,7 @@
   "name": "dishflip",
   "version": "1.0.0",
   "description": "React Redux Frontend App",
-  "main": "server.js",
+  "main": "app.js",
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js"
