@@ -14,15 +14,23 @@ class Menu extends Component {
 
   render() {
     const { menu } = this.props.menu;
+    let sortedSections = [];
 
     return (
       <div>
         <Container fluid="xl">
-          {/* MENU SECTION COMPONENT*/}
+          {/* MENU SECTION COMPONENT - copy data into new array and sort it by DisplayOrder */}
           {menu.length &&
-            menu.map((menuSection, index) => (
-              <MenuSection key={index} menuSection={menuSection} />
-            ))}
+            (sortedSections = []
+              .concat(menu)
+              .sort((a, b) => (a.DisplayOrder > b.DisplayOrder ? 1 : -1))
+              .map((menuSection, index) => (
+                <MenuSection
+                  key={index}
+                  index={index}
+                  menuSection={menuSection}
+                />
+              )))}
         </Container>
       </div>
     );

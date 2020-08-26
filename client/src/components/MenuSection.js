@@ -1,12 +1,5 @@
 import React, { Component } from "react";
-import {
-  Row,
-  Col,
-  Card,
-  CardHeader,
-  CardColumns,
-  Collapse,
-} from "reactstrap";
+import { Row, Col, Card, CardHeader, CardColumns, Collapse } from "reactstrap";
 import { Transition } from "react-transition-group";
 
 import MenuItem from "./MenuItem";
@@ -15,6 +8,15 @@ class MenuSection extends Component {
   state = {
     collapse: false,
   };
+
+  //Runs when the component mounts
+  componentDidMount() {
+    if (this.props.index === 0) {
+      this.setState({
+        collapse: true,
+      });
+    }
+  }
 
   onToggle = () => {
     this.setState({
@@ -25,6 +27,7 @@ class MenuSection extends Component {
   render() {
     const { menuSection } = this.props;
     const { collapse } = this.state;
+    let sortedItems = [];
 
     let accordianIcon;
     if (collapse) {
@@ -49,15 +52,18 @@ class MenuSection extends Component {
               </Col>
             </Row>
           </CardHeader>
-          {/* Card Body - accordian with transition */}
+          {/* Card Columns - accordian with transition */}
           <Transition in={collapse} timeout={1000}>
             <Collapse isOpen={collapse}>
-              <CardColumns className="m-2">
-                {/* MENU ITEM COMPONENT*/}
+              <CardColumns className="p-2 p-sm-4 ">
+                {/* MENU ITEM COMPONENT - copy data into new array and sort it by DisplayOrder */}
                 {menuSection.MenuItems.length &&
-                  menuSection.MenuItems.map((menuItem, index) => (
-                    <MenuItem key={index} menuItem={menuItem} />
-                  ))}
+                  (sortedItems = []
+                    .concat(menuSection.MenuItems)
+                    .sort((a, b) => (a.DisplayOrder > b.DisplayOrder ? 1 : -1))
+                    .map((menuItem, index) => (
+                      <MenuItem key={index} menuItem={menuItem} />
+                    )))}
               </CardColumns>
             </Collapse>
           </Transition>

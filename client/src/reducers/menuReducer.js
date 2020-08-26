@@ -1,4 +1,4 @@
-import { GET_MENU } from "../actions/actionTypes";
+import { GET_MENU, MENU_LOADING } from "../actions/actionTypes";
 
 const initialState = {
   menu: [],
@@ -12,6 +12,10 @@ export default function (state = initialState, action) {
         ...state,
         menu: action.payload.MenuSections,
         loading: false,
+      };
+    case MENU_LOADING:
+      return {
+        ...state,
       };
     default:
       return state;

@@ -1,4 +1,4 @@
-import { GET_MENU } from "./actionTypes";
+import { GET_MENU, MENU_LOADING } from "./actionTypes";
 
 export const getMenu = () => (dispatch) => {
   fetch(
@@ -15,4 +15,10 @@ export const getMenu = () => (dispatch) => {
     .catch((error) => {
       console.log("ERROR fetching data");
     });
+};
+
+export const setMenuLoading = () => {
+  return {
+    type: MENU_LOADING,
+  };
 };
