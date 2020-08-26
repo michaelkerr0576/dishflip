@@ -17,7 +17,7 @@ Dishflip is created with:
 
 ## Demo Screenshots
 #### 1. Menu Component
-![Menu Component](https://user-images.githubusercontent.com/53580213/91284221-8406ed80-e783-11ea-99fd-52e74d0b2cc0.png)
+![Menu Component](https://user-images.githubusercontent.com/53580213/91323021-4e302c00-e7b8-11ea-9e5e-425773a781e1.png)
 
 ## License
 
